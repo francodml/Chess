@@ -47,7 +47,7 @@ namespace Chess
             int row = 0;
             for (int i = 0; i < spaces; i++)
             {
-                if (i % size == 0 && i > 7)
+                if (i % size == 0 && i > size-1)
                 {
                     row++;
                     Console.Write("\n");
@@ -55,12 +55,13 @@ namespace Chess
                 var piece = GetPieceAt(i % size, row);
                 if (piece == null)
                 {
-                    Console.Write(" ");
+                    Console.Write("  ");
                     continue;
                 }
 
                 Console.Write(GetPieceAt(i % size, row).GetRenderChar()+" ");
             }
+            Console.Write("\n");
         }
 
     }
