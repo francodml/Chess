@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Numerics;
 
 namespace Chess
@@ -20,11 +21,14 @@ namespace Chess
             int iter = 0;
             do
             {
-                for (int i = 0; i < 8; i++)
+                for (int i = 0; i < size; i++)
                 {
                     Piece piece = new((PieceType)pattern[i], iter > 0);
-                    piece.Position = new Vector2(iter > 0 ? 7 : 0, i);
+                    piece.Position = new Vector2(i,iter > 0 ? 7 : 0);
                     pieces.Add(piece);
+                    Piece pawn = new(PieceType.Pawn, iter > 0);
+                    pawn.Position = new Vector2(i, iter > 0 ? 6 : 1);
+                    pieces.Add(pawn);
                 }
                 iter++;
             }
@@ -33,14 +37,20 @@ namespace Chess
 
         public Piece GetPieceAt(int x, int y)
         {
-            throw new NotImplementedException();
+            Vector2 pos = new(x, y);
+            return pieces.FirstOrDefault(x => x.Position == pos);
         }
 
         public void Draw()
         {
-            foreach (Piece p in pieces)
+            int spaces = (int)Math.Pow(size, 2);
+            int row = 0;
+            for (int i = 0; i < spaces; i++)
             {
-                Console.WriteLine(p);
+                if (i % size == 0 && i > 7)
+                    row++;
+                Console.WriteLine($"X:{i % size},Y:{row}");
+                Console.WriteLine(GetPieceAt(i % size, row));
             }
         }
 
