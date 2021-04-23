@@ -28,10 +28,8 @@ namespace Chess
             Colour = pieceColour;
         }
 
-        public string GetRenderChar()
-        {
-            return RenderChars[(int)Type];
-        }
+        public string RenderChar =>
+            RenderChars[(int)Type];
 
         public string GetColour()
         {

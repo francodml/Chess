@@ -59,7 +59,7 @@ namespace Chess
                     continue;
                 }
 
-                Console.Write(GetPieceAt(i % size, row).GetRenderChar()+" ");
+                Console.Write(GetPieceAt(i % size, row).RenderChar+" ");
             }
             Console.Write("\n");
         }
