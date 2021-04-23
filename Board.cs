@@ -48,9 +48,20 @@ namespace Chess
             for (int i = 0; i < spaces; i++)
             {
                 if (i % size == 0 && i > 7)
+                {
                     row++;
-                Console.WriteLine($"X:{i % size},Y:{row}");
-                Console.WriteLine(GetPieceAt(i % size, row));
+                    Console.Write("\n");
+                }
+                /*Console.WriteLine($"X:{i % size},Y:{row}");
+Console.WriteLine(GetPieceAt(i % size, row));*/
+                var piece = GetPieceAt(i % size, row);
+                if (piece == null)
+                {
+                    Console.Write(" ");
+                    continue;
+                }
+
+                Console.Write(GetPieceAt(i % size, row).GetRenderChar()+" ");
             }
         }
 
