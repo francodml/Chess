@@ -52,8 +52,6 @@ namespace Chess
                     row++;
                     Console.Write("\n");
                 }
-                /*Console.WriteLine($"X:{i % size},Y:{row}");
-Console.WriteLine(GetPieceAt(i % size, row));*/
                 var piece = GetPieceAt(i % size, row);
                 if (piece == null)
                 {
