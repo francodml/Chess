@@ -5,7 +5,7 @@ namespace Chess
 {
     public class Piece
     {
-        static readonly string[] RenderChars = { "P", "R", "H", "B", "Q", "K" };
+        static readonly string[] RenderChars = { "P", "R", "N", "B", "Q", "K" };
         public PieceType Type { get; init; }
         public bool Colour { get; init; } // 0 = Black, 1 = White, because I can't care enough to make an enum for this.
         public Vector2 Position { get; set; } = new Vector2(0, 0);
