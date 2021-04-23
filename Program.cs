@@ -12,6 +12,9 @@ namespace Chess
 
             board.StartBoard();
             board.Draw();
+
+            board.GetPieceAt(1, 0)?.Move(2,2);
+            board.Draw();
         }
     }
 }
